@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Set-Location \"E:\\\\FlowCheck\"; Get-ChildItem -Recurse -File | Where-Object { $_.FullName -notmatch \"node_modules\" -and $_.FullName -notmatch \"\\\\.git\" } | ForEach-Object { $_.FullName.Replace\\(\"E:\\\\FlowCheck\\\\\",\"\"\\) } | Sort-Object)"
+    ]
+  }
+}
