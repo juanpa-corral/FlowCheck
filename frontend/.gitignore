@@ -1,0 +1,29 @@
+# ── Secretos / credenciales ──────────────────────────────────
+.env
+*.env
+.env.*
+!.env.example
+
+# ── Node / Frontend ───────────────────────────────────────────
+node_modules/
+dist/
+.vite/
+
+# ── Java / Maven (backend) ───────────────────────────────────
+backend/target/
+backend/.env
+backend/*.env
+*.class
+*.jar
+*.war
+
+# ── IDEs ─────────────────────────────────────────────────────
+.idea/
+*.iml
+.vscode/
+*.suo
+*.user
+
+# ── OS ───────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
