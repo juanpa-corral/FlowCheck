@@ -215,6 +215,38 @@ export default function DashboardPage() {
           </div>
         </div>
 
+        {/* ── Penalización del día (si aplica) ── */}
+        {penalties.checked && penalties.result && penalties.result.totalDeduction > 0 && (
+          <div
+            style={{
+              backgroundColor: Colors.redLight,
+              borderRadius: Radius.card,
+              padding: '12px 16px',
+              border: `1px solid ${Colors.red}30`,
+              display: 'flex', alignItems: 'flex-start', gap: 12,
+            }}
+          >
+            <span style={{ fontSize: 22, flexShrink: 0 }}>
+              {penalties.result.streakPenalty ? '🔥' : '⚠️'}
+            </span>
+            <div style={{ flex: 1 }}>
+              <p style={{ fontSize: 13, fontWeight: 700, color: Colors.red, margin: '0 0 2px' }}>
+                {penalties.result.streakPenalty
+                  ? 'Racha rota — perdiste puntos hoy'
+                  : 'Penalización por ocio sin fondo de emergencia'}
+              </p>
+              <p style={{ fontSize: 12, color: Colors.textSecondary, margin: '0 0 4px', lineHeight: '18px' }}>
+                {penalties.result.streakPenalty
+                  ? 'No registraste gastos ayer. Registra hoy para retomar tu racha.'
+                  : 'Tu gasto en ocio supera el 25% del ingreso sin fondo de emergencia activo.'}
+              </p>
+              <p style={{ fontSize: 13, fontWeight: 800, color: Colors.red, margin: 0 }}>
+                -{penalties.result.totalDeduction} pts descontados hoy
+              </p>
+            </div>
+          </div>
+        )}
+
         {/* ── Acceso rápido: Mi Mes ── */}
         <button
           onClick={() => navigate('/analitica')}

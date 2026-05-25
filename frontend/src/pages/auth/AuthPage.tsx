@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Eye, EyeOff } from 'lucide-react'
 import { supabase } from '../../lib/supabase'
 import { Button } from '../../components/Button'
 import { Colors } from '../../constants/theme'
@@ -64,6 +65,7 @@ const S = {
 export default function AuthPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
   const [isLogin, setIsLogin] = useState(true)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -142,15 +144,40 @@ export default function AuthPage() {
 
         <div style={S.inputGroup}>
           <label style={S.label}>Contraseña</label>
-          <input
-            style={S.input}
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="••••••••"
-            autoComplete={isLogin ? 'current-password' : 'new-password'}
-            onKeyDown={(e) => e.key === 'Enter' && handleAuth()}
-          />
+          <div style={{ position: 'relative' }}>
+            <input
+              style={{ ...S.input, paddingRight: 48 }}
+              type={showPassword ? 'text' : 'password'}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="••••••••"
+              autoComplete={isLogin ? 'current-password' : 'new-password'}
+              onKeyDown={(e) => e.key === 'Enter' && handleAuth()}
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword((v) => !v)}
+              aria-label={showPassword ? 'Ocultar contraseña' : 'Ver contraseña'}
+              style={{
+                position: 'absolute',
+                right: 12,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                padding: 4,
+                color: Colors.textMuted,
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
+              {showPassword
+                ? <EyeOff size={18} strokeWidth={2} />
+                : <Eye size={18} strokeWidth={2} />
+              }
+            </button>
+          </div>
         </div>
 
         <Button
