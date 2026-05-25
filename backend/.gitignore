@@ -1,0 +1,14 @@
+# Maven build output — nunca commitear
+target/
+
+# Secretos — usar variables de entorno o .env local
+.env
+*.env
+!.env.example
+
+# IDEs
+.idea/
+*.iml
+.classpath
+.project
+.settings/

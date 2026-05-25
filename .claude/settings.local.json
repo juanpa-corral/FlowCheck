@@ -1,7 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "PowerShell(Set-Location \"E:\\\\FlowCheck\"; Get-ChildItem -Recurse -File | Where-Object { $_.FullName -notmatch \"node_modules\" -and $_.FullName -notmatch \"\\\\.git\" } | ForEach-Object { $_.FullName.Replace\\(\"E:\\\\FlowCheck\\\\\",\"\"\\) } | Sort-Object)"
+      "PowerShell(Set-Location \"E:\\\\FlowCheck\"; Get-ChildItem -Recurse -File | Where-Object { $_.FullName -notmatch \"node_modules\" -and $_.FullName -notmatch \"\\\\.git\" } | ForEach-Object { $_.FullName.Replace\\(\"E:\\\\FlowCheck\\\\\",\"\"\\) } | Sort-Object)",
+      "Bash(Test-Path *)",
+      "Read(//mnt/e/FlowCheck/**)",
+      "Bash(sed -i \"s/\\\\`1px solid \\\\${Colors\\\\.green}40\\\\`/\\\\`1px solid \\\\${Colors.greenA40}\\\\`/g\" src/pages/educacion/EducacionPage.tsx)",
+      "Bash(sed -i \"s/\\\\`1px solid \\\\${Colors\\\\.primary}30\\\\`/\\\\`1px solid \\\\${Colors.primaryA30}\\\\`/g\" src/pages/educacion/EducacionPage.tsx)",
+      "Bash(sed -i \"s/\\\\`1px solid \\\\${Colors\\\\.yellow}40\\\\`/\\\\`1px solid \\\\${Colors.yellowA40}\\\\`/g\" src/pages/educacion/EducacionPage.tsx)",
+      "Bash(sed -i \"s/\\\\`1px solid \\\\${Colors\\\\.yellow}30\\\\`/\\\\`1px solid \\\\${Colors.yellowA40}\\\\`/g\" src/pages/educacion/EducacionPage.tsx)",
+      "Bash(npx tsc *)"
     ]
   }
 }
